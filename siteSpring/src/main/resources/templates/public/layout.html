@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" 
+				   xmlns:th="https://www.thymeleaf.org"
+				   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+				   <html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Loja Virtual MCBrinquedos</title>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="_css/fotos.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script lang="javascript" src="_javascript/funcoes.js">
+    </script>
+</head>
+<body>
+	<header th:replace="/public/fragments/header :: cabecalho">
+		<div>Herder</div>
+	</header>
+	
+	<div id="interface">
+		<section layout:fragment="corpo">
+		
+			<div> Principal</div>		
+		</section>
+	</div>
+	
+	<footer th:replace="/public/fragments/footer :: rodape">
+						
+		<div>Footer</div>
+	</footer>
+</body>
+</html>

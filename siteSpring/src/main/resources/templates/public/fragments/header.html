@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<header id="cabecalho" th:fragment="cabecalho">
+		<hgroup>
+			<h1>MCBrinquedos</h1>
+		</hgroup>
+
+		<img id="icone" src="_imagens/glass-oculos-preto-peq.png" />
+
+		<nav id="menu">
+			<ul class="menu">
+				<li><a th:href="@{/}">Home</a></li>
+				<li><a th:href="@{/categorias/categoriaLista}">Categorias</a></li>
+				<li><a th:href="@{/admin}">Administração</a></li>
+				<li><a th:href="@{/lista}">Sobre a Equipe</a></li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>
