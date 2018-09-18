@@ -1,0 +1,238 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@font-face{
+	font-family:'FonteLogo';
+	src: url("../_fonts/bubblegum-sans-regular.otf");
+}
+
+		body{
+			font-family: Arial, sans-sarif;
+			background: url(../_imagens/fundo.png) center center/100% 100% no-repeat fixed;
+			
+			color:rgba(76,51,27,0.5);
+		
+		}
+		
+		p{
+			text-align:justify;
+			text-indent:50px;
+		}
+		
+		a {
+			color: #606060;
+			text-decoration: none;
+		}
+		
+		a:hover {
+			text-decoration: underline;
+			
+		}
+		
+		header#cabecalho img#icone{
+			
+			position: absolute;
+			left: 1000px;
+			top: 80px;
+		}
+				
+		header#cabecalho h1{
+			
+			font-family: 'FonteLogo', sans-sarif;
+			font-size: 30pt;
+			color: #606060;
+			text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+			padding: 10px;
+			margin-bottom: 50px;
+		
+		}
+		
+		header#cabecalho h2{
+			
+			font-family: 'Gloria Hallelujah', cursive;
+			font-size: 15pt;
+			color: #888888;
+			padding: 0px;
+			margin-top: 20px:
+		}
+		
+		header#cabecalho-artigo h1{
+			
+			font-family:'FonteLogo', sans-sarif;
+			font-size: 20pt;
+			color: #606060;
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+		
+		header#cabecalho-artigo h2{
+			font-size: 13pt;
+			background-color: red;
+			margin: 0px;
+			margin-top: 60px;
+			margin-bottom: 30px;
+		}
+		
+
+		div#interface{
+			width: 1050px;
+			background: url(../_imagens/fundo3.png) center center/100% 100% no-repeat;
+			margin: -20px auto 0px auto;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+			padding: 10px;	
+		}
+		
+		/*Formatação de imagens com legendas*/
+		figure.foto-legenda{
+			position: relative;
+			border: 8px solid white;
+			box-shadow: 1px 1px 4px black;
+			
+		}
+		figure.foto-legenda img{
+			width:100%;
+			height:100%;
+		}
+		
+		figure.foto-legenda figcaption{
+			opacity: 0;
+			position: absolute;
+			top: 0px;
+			background-color: rgba(0,0,0,0.4);
+			color: white;
+			width: 100%;
+			height:100%;
+			padding: 10px;
+			box-sizing: border-box;
+			transition: opacity 1s;
+		}
+		figure.foto-legenda:hover figcaption{
+			opacity: 0.3;
+			
+		}
+
+		/*Formatação do menu*/
+		
+		nav#menu{
+			display: block;
+		}
+		nav#menu ul{
+			list-style: none;
+			text-transform: uppercase;
+			position: absolute;
+			top: 1px;
+			left: 620px;
+			
+		}
+		nav#menu li{
+			display: inline-block;
+			background-color: #dddddd;
+			padding: 10px;
+			margin: 0px;
+			transition: background-color 0.5s;
+		}
+		nav#menu li:hover{
+			background-color: #606060;
+			
+		}
+		nav#menu h1{
+			display: none;
+		}
+		nav#menu a{
+			color: #000000;
+			text-decoration: none;
+			transition: color 0.5s;
+		}
+		nav#menu a:hover{
+			color: #ffffff;
+		}
+		
+		
+		nav#menu li ul{
+		position:absolute; 
+		top:39px; 
+		left:181px;
+		display:none;
+} 
+		nav#menu li:hover ul, nav#menu li.over ul{
+		display:block;
+		text-decoration: none;}
+
+		
+		nav#menu li ul li{
+		
+		border:1px solid #c0c0c0; 
+		display:block; 
+		width:136px;
+		font-size: 8pt;
+		text-align:center;
+		}	
+		/*Fim do Menu*/
+		
+		/*Página Principal*/
+		section#corpo{
+			display: block;
+			width: 800px;
+			float: left;
+			border-right: 1px solid #606060;
+			padding-right: 15px;
+			background-color: blue;
+		}
+		
+		article#noticia-principal h2{
+			font-size: 13px;
+			color: #606060;
+			background-color: #dddddd;
+			padding: 5px 0px 5px 10px;
+			margin:10px 0px 10px 0px;
+			box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+			height:5px;
+		}
+		
+		
+		/*Página de Espacificações*/
+		table#tabelaspec{
+			border: 1px dotted #606060;
+			border-spacing: 0px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		table#tabelaspec td{
+			border: 1px dotted #606060;
+			padding: 10px;
+		}
+		table#tabelaspec td.cle{
+			color: white;
+			background-color: gray;
+			text-align: right;
+			font-family: comic sans ms, arial;
+			font-size: 14pt;
+		}
+		table#tabelaspec td.cld{
+			color: blue;
+			background-color: #ffdeb6;
+			text-align: center;
+			font-family: comic sans ms, arial;
+			font-size: 12pt;
+		}
+		table#tabelaspec caption{
+			color:#888888;
+			font-size:15pt;
+			font-weight:bolder;
+		}
+		table#tabelaspec caption span{
+			display: block;
+			float: right;
+			color: #000000;
+			font-size: 8pt;
+			margin-top: 10px;
+		}
+			
+		
+		footer#rodape{
+			clear: both;
+			border-top: 1px solid #606060;
+			margin-top: 30px;
+		}
+		footer#rodape p{
+			text-align: center;
+		}

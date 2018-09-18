@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>:::MALL TOY | P&aacute;gina Inicial:::</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.css}"
+	rel="stylesheet" />
+</head>
+<body>
+	<header class="bg-primary text-white">
+		<div class="container text-center">
+			<h1>Menu administrativo</h1>
+		</div>
+	</header>
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-lg-3">
+				<h1 class="my-4">Menu Principal</h1>
+				<div class="list-group">
+					<!-- <a href="#" class="list-group-item active">Alunos</a> -->
+					<a th:href="@{/alunos/lista}" class="list-group-item">Alunos</a>
+					<a th:href="@{/categorias/categoriaLista}"	class="list-group-item">Categoria</a>
+					<a th:href="@{/produtos/lista}" class="list-group-item">Produto</a>
+					<a th:href="@{/images/lista}" class="list-group-item">Imagens</a>
+				</div>
+			</div>
+			<!-- /.col-lg-3 -->
+
+			<div class="col-lg-9">
+				<div class="card mt-4">
+					<!-- <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt=""> -->
+					<div class="card-body">
+						<h3 class="card-title">Cadastro de Imagens</h3>
+						<hr/>
+						
+						<!-- MENSAGEM DE SUCESSO -->
+						<div th:if="${message != null}" class="alert alert-success alert-dismissible" role="alert">				
+							<span th:text="${message}"></span>
+							<button type="button" class="close" data-dismiss="alert">&times;</button>
+						</div>	
+								
+						<form th:action="${imagem.imCodigo == null} ? @{/images/salvar} : @{/images/editar}"
+							th:object="${imagem}"
+							method="post" enctype="multipart/form-data">
+							<!-- MENSAGENS DE VALIDAÇÕES -->
+							<div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger alert-dismissible" role="alert">				
+								<div th:each="error : ${#fields.detailedErrors()}">
+									<span th:text="${error.message}"></span>
+								</div>
+								<button type="button" class="close" data-dismiss="alert">&times;</button>
+							</div>
+													
+							<input type="hidden" th:field="*{imCodigo}"/>
+							<input type="hidden" th:field="${imagem.imHref}"/>
+						<table class="table table-bordered">
+						  <tbody>
+							<tr th:if="${imagem.imCodigo != null} ">
+						      <th>Status: </th>
+						      <td>
+								<select class="form-control" name="imStatus" id="imStatus">
+									<option value="">---Selecione o Status---</option>
+									<option th:value="0" th:text="Inativo" th:selected="${imagem.imCodigo != null && imagem.imStatus == 0}"></option>
+									<option value="1" th:text="Ativo" th:selected="${imagem.imStatus == 1}"></option>
+								</select>
+							  </td>
+						    </tr>
+							<tr>
+						      <th>Produto: </th>
+						      <td>
+								<select class="form-control" th:field="*{produto}" id="imPrCodigo">
+									<option value="">---Selecione um Produto---</option>
+									<option
+										th:each="pr : ${listaProduto}"
+										th:value="${pr.prCodigo}"
+										th:text="${pr.prNome}"></option>
+								</select>
+							  </td>
+						    </tr>
+						    <tr>
+						      <th>Título: </th>
+						      <td><input type="text" th:field="*{imTitle}" id="imTitle" class="form-control"/></td>
+						    </tr>
+							<tr th:if="${imagem.imCodigo != null} ">
+						      <th>Imagem: </th>
+						      <td>
+						      	<img th:src="*{imHref}" title="*{i.imTitle}" width="150" height="150" />
+							  </td>
+						    </tr>
+						    <tr>
+						      <th>Foto: </th>
+						      <td><input type="file" name="file" accept="image/*" id="file" class="form-control"/></td>
+						    </tr>
+						    <tr>
+						    	<td>&nbsp;</td>
+						      <td>
+							      <button type="submit" value="Salvar" class="btn btn-info">Salvar</button>
+							  </td>
+						    </tr>
+						  </tbody>
+						</table>
+						</form>
+						<a th:href="@{/images/lista}" class="btn btn-default">&larr; Lista de Imagens</a>
+					</div>				
+				</div>
+				<!-- <a href="#" class="btn btn-success">Leave a Review</a> -->
+			</div>
+		</div>
+		<!-- /.card -->
+
+	</div>
+	<!-- /.col-lg-9 -->
+
+	</div>
+
+	</div>
+
+	<script th:src="@{/webjars/jquery/jquery.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.js}"></script>
+	<script th:src="@{/js/jquery.maskMoney.js}"></script>
+	<script type="text/javascript">
+		jQuery(function($){
+			$("#imValor").maskMoney({
+				prefix:'R$ ',
+				allowNegative: false,
+				thousands:'.',
+				decimal:',',
+				allowZero:true, 
+				affixesStay: false});
+		});
+	</script>
+</body>
+</html>
